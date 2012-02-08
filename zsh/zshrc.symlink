@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Development
+export PROJECTS=~/workspace
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
@@ -17,6 +17,9 @@ fi
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
+
+autoload -U regexp-replace
+setopt re_match_pcre
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file

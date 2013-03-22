@@ -8,8 +8,8 @@
 # install this to the correct location by running the project's main `rake`
 # task.
 [user]
-        name = Zach Holman
-        email = your@example.com
+        name = Enrico Mischorr
+        email = enrico@mischorr.de
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
@@ -22,10 +22,10 @@
         branch = auto
 [core]
         excludesfile = ~/.gitignore
-        editor = mate -w
+        editor = vim
 [apply]
         whitespace = nowarn
 [github]
-        user = holman
+        user = micralon
 [mergetool]
         keepBackup = false

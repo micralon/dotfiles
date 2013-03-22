@@ -7,6 +7,9 @@
 # To set this up, rename this file to `gitconfig.symlink` and you'll be able to
 # install this to the correct location by running the project's main `rake`
 # task.
+#[http]
+# proxy = http://proxy.domain.com:80
+
 [user]
         name = Enrico Mischorr
         email = enrico@mischorr.de
@@ -17,6 +20,7 @@
         rank-contributers = !$ZSH/bin/git-rank-contributers
         count   = !git shortlog -sn
 [color]
+        ui = true
         diff = auto
         status = auto
         branch = auto

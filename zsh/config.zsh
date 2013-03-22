@@ -40,6 +40,14 @@ setopt HIST_REDUCE_BLANKS
 setopt complete_aliases
 
 zle -N newtab
+exit() {
+  exit
+}
+zle -N exit
+foreground-vi() {
+    fg %vi
+}
+zle -N foreground-vi
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
@@ -51,3 +59,4 @@ bindkey '^?' backward-delete-char
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
 bindkey '^D' exit
+bindkey '^Z' foreground-vi

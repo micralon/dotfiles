@@ -26,4 +26,5 @@ alias gca='git commit -a'
 alias gco='git checkout'
 alias gb='git branch -avv'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gst='git status -sb; git diff --shortstat'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"

@@ -19,7 +19,7 @@ autoload -U compinit
 compinit
 
 autoload -U regexp-replace
-setopt re_match_pcre
+#setopt re_match_pcre
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file

@@ -3,16 +3,16 @@ autoload colors && colors
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
 git_branch() {
-  echo $(/usr/local/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+  echo $(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
 git_dirty() {
-  st=$(/usr/local/bin/git status 2>/dev/null | tail -n 1)
+  st=$(git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
     echo ""
   else
-    if [[ $st == *"nothing to commit"* ]]
+    if [[ $st == *"othing to commit"* ]]
     then
       echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
@@ -22,13 +22,13 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$(/usr/local/bin/git symbolic-ref HEAD 2>/dev/null) || return
+ ref=$(git symbolic-ref HEAD 2>/dev/null) || return
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
 
 unpushed () {
-  /usr/local/bin/git cherry -v origin/$(git_branch) 2>/dev/null
+  git cherry -v origin/$(git_branch) 2>/dev/null
 }
 
 need_push () {
@@ -49,13 +49,6 @@ rvm_prompt(){
   fi
 }
 
-grails_prompt(){
-  if [[ $CURRENT_GRAILS_VERSION != "" ]]; then
-    echo "%{$fg_bold[yellow]%}$CURRENT_GRAILS_VERSION/%{$reset_color%}"
-  else
-    echo ""
-  fi
-}
 
 # This keeps the number of todos always available the right hand side of my
 # command line. I filter it to only count those tagged as "+next", so it's more
@@ -80,7 +73,7 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(grails_prompt)$(rvm_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }

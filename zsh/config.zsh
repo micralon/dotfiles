@@ -40,10 +40,10 @@ setopt HIST_REDUCE_BLANKS
 setopt complete_aliases
 
 zle -N newtab
-exit() {
+exitshell() {
   exit
 }
-zle -N exit
+zle -N exitshell
 foreground-vi() {
     fg %vi
 }
@@ -58,5 +58,5 @@ bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
-bindkey '^D' exit
+bindkey '^D' exitshell
 bindkey '^Z' foreground-vi
